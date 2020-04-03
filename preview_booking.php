@@ -17,9 +17,11 @@ require __DIR__ . '/vendor/autoload.php';
 
    $checkinDate = $userDetails->appt_checkin->answer;
    $checkoutDate = $userDetails->appt_checkout->answer;
+   $room_type = $userDetails->room_type->answer;
+   $room_type = $userDetails->email->answer;   
+   $paymenbt_type = $userDetails->payment_type->answer;
    $guests = $userDetails->appt_guests->answer;
 
-$message = "Veja os apartamentos com disponibilidade de ".$checkinDate." até ".$checkoutDate." para ".$guests. " pessoas:";
 
 
 
@@ -120,39 +122,9 @@ $client->messages->create(
 
 {
   "actions": [
-
-    {
-      "show": {
-        "body": "LOFT, acomoda até 3 pessoas. R$190 por noite, total do Pacote R$2039.",
-        "images": [ {
-            "label": "Original Owl",
-            "url": "https://taranisimages.s3-sa-east-1.amazonaws.com/1567419879875.jpg"
-            
-        }
-        ]
-      }
-    },
-    {
-      "show": {
-        "body": "SUITE, acomoda até 2 pessoas. R$200 por noite. Total no pacote R$2039",
-        "images": [ {
-            "label": "Original Owl",
-            "url": "https://taranisimages.s3-sa-east-1.amazonaws.com/1567419259111.jpg"
-            
-        }
-        ]
-      }
-    },
-        {
-          "redirect": "task://choose_room"
-        }
-      
-    
-
-
-    
-      
-
+    {      
+      "say": "Confirmar reserva de um apto X, na data Y, por R$X? Com café da manhã, e reembolso total em caso de cancelamento?"
+    }   
   ]
 }
 
